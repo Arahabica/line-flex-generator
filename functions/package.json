@@ -1,0 +1,38 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "cd ../ ; yarn build && cd functions/ && yarn copy:nuxt && firebase deploy",
+    "copy:nuxt": "rm -rf .nuxt/; cp -R ../.nuxt/ .nuxt",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "10"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.0",
+    "@nuxtjs/vuetify": "^1.1.1",
+    "firebase": "^6.5.0",
+    "firebase-admin": "^8.0.0",
+    "firebase-functions": "^3.1.0",
+    "nuxt": "^2.0.0",
+    "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "pug": "^2.0.4",
+    "vuefire": "^2.1.2",
+    "vuexfire": "^3.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "firebase-functions-test": "^0.1.6",
+    "firebase-tools": "^7.3.1"
+  },
+  "private": true
+}
