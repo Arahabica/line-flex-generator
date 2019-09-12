@@ -8,7 +8,12 @@
         "size": "full",
         "aspectRatio": "20:13",
         "aspectMode": "cover",
-        "url": "https://line-flex-generator.firebaseapp.com/bg_ocean_suiheisen.jpg"
+        "url": "https://line-flex-generator.firebaseapp.com/bg_ocean_suiheisen.jpg",
+        "action": {
+          "type": "uri",
+          "label": "image",
+          "uri": "https://yuigahama.sos.gr.jp/"
+        }
       },
       "body": {
         "type": "box",
@@ -41,7 +46,7 @@
             "action": {
               "type": "uri",
               "label": "詳細",
-              "uri": "https://linecorp.com"
+              "uri": "https://yuigahama.sos.gr.jp/"
             }
           },
           {
@@ -64,7 +69,12 @@
         "size": "full",
         "aspectRatio": "20:13",
         "aspectMode": "cover",
-        "url": "https://line-flex-generator.firebaseapp.com/bg_natural_flower.jpg"
+        "url": "https://line-flex-generator.firebaseapp.com/bg_natural_flower.jpg",
+        "action": {
+          "type": "uri",
+          "label": "image",
+          "uri": "https://www.ashikaga.co.jp/"
+        }
       },
       "body": {
         "type": "box",
@@ -97,7 +107,7 @@
             "action": {
               "type": "uri",
               "label": "詳細",
-              "uri": "https://linecorp.com"
+              "uri": "https://www.ashikaga.co.jp/"
             }
           },
           {
@@ -120,7 +130,12 @@
         "size": "full",
         "aspectRatio": "20:13",
         "aspectMode": "cover",
-        "url": "https://line-flex-generator.firebaseapp.com/bg_taki.jpg"
+        "url": "https://line-flex-generator.firebaseapp.com/bg_taki.jpg",
+        "action": {
+          "type": "uri",
+          "label": "image",
+          "uri": "http://kegon.jp/"
+        }
       },
       "body": {
         "type": "box",
@@ -153,7 +168,7 @@
             "action": {
               "type": "uri",
               "label": "詳細",
-              "uri": "https://linecorp.com"
+              "uri": "http://kegon.jp/"
             }
           },
           {

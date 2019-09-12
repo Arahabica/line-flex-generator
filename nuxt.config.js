@@ -1,13 +1,12 @@
 import colors from 'vuetify/lib/util/colors'
 
 const base = '/'
-const title = 'proj'
-const description = 'desc'
+const title = 'LINE Flex Generator'
+const description = 'LINEのFlexメッセージを生成することができます。'
 const url = 'https://vuetifyjs.com'
 const imageUrl = 'https://cdn.vuetifyjs.com/images/logos/vuetify-logo-300.png'
-const twitterSite = ''
+const twitterSite = '@Arahabica'
 
-// eslint-disable-next-line nuxt/no-cjs-in-config
 module.exports = {
   mode: 'universal',
   srcDir: 'src',
