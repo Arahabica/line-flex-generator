@@ -1,0 +1,173 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://line-flex-generator.firebaseapp.com/bg_ocean_suiheisen.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "由比ヶ浜",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "毎年、海水浴客で賑わう。\nサーファーも多い。",
+            "wrap": true
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#28c756",
+            "action": {
+              "type": "uri",
+              "label": "詳細",
+              "uri": "https://linecorp.com"
+            }
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#2aa3ef",
+            "action": {
+              "type": "uri",
+              "label": "Twitter",
+              "uri": "https://linecorp.com"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://line-flex-generator.firebaseapp.com/bg_natural_flower.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "あしかがフラワーパーク",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "年中、お花を鑑賞できる。\n藤棚が有名。",
+            "wrap": true
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#28c756",
+            "action": {
+              "type": "uri",
+              "label": "詳細",
+              "uri": "https://linecorp.com"
+            }
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#2aa3ef",
+            "action": {
+              "type": "uri",
+              "label": "Twitter",
+              "uri": "https://linecorp.com"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://line-flex-generator.firebaseapp.com/bg_taki.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "華厳の滝",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "奥日光にある滝。日本三名瀑のひとつにも数えられている。",
+            "wrap": true
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#28c756",
+            "action": {
+              "type": "uri",
+              "label": "詳細",
+              "uri": "https://linecorp.com"
+            }
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#2aa3ef",
+            "action": {
+              "type": "uri",
+              "label": "Twitter",
+              "uri": "https://linecorp.com"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

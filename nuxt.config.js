@@ -43,6 +43,9 @@ module.exports = {
         content: description
       }
     ],
+    script: [
+      { src: 'https://d.line-scdn.net/liff/1.0/sdk.js' }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
