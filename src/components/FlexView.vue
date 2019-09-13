@@ -36,20 +36,22 @@ export default {
   },
   methods: {
     send() {
-      const messageObject = {
-        type: "flex",
-        altText: "this is a flex message",
-        contents: this.data
+      if (window.confirm('送信してもよろしいですか？')) {
+        const messageObject = {
+          type: "flex",
+          altText: "this is a flex message",
+          contents: this.data
+        }
+        window.liff.sendMessages([messageObject])
+          .then(() => {
+            window.alert('送信しました。')
+            console.log('message sent');
+          })
+          .catch((err) => {
+            window.alert('送信に失敗しました。\n' + err)
+            console.log('error', err);
+          });
       }
-      window.liff.sendMessages([messageObject])
-        .then(() => {
-          window.alert('送信しました。')
-          console.log('message sent');
-        })
-        .catch((err) => {
-          window.alert('送信に失敗しました。\n' + err)
-          console.log('error', err);
-        });
     }
   }
 }
