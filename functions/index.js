@@ -1,4 +1,5 @@
 const functions = require('firebase-functions')
+const { scrapeOPSite } = require('./scraping')
 const { Nuxt } = require('nuxt')
 const express = require('express')
 const app = express()
@@ -19,4 +20,21 @@ function handleRequest(req, res) {
 }
 
 app.use(handleRequest)
-exports.app= functions.https.onRequest(app)
+
+const api = express()
+api.get('/api/scrape', (req, res) => {
+  const url = req.query.url
+  let response
+  if (!url) {
+    const message = 'parameter url is not found.'
+    res.status(400).send(JSON.stringify({ message }))
+  }
+  scrapeOPSite(url).then(data => {
+    res.send(JSON.stringify({ data }))
+  }).catch(err => {
+    res.status(400).send(JSON.stringify({ message: err }))
+  })
+})
+
+exports.app = functions.https.onRequest(app)
+exports.api = functions.https.onRequest(api)

@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build:nuxt": "nuxt build",
     "build": "yarn clean;yarn build:nuxt;yarn copy:server; yarn copy:client # for Firebase",
-    "deploy":"cd functions; yarn deploy",
+    "deploy": "cd functions; yarn deploy",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
@@ -21,7 +21,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.10.0",
     "@nuxtjs/vuetify": "^1.6.3",
+    "axios": "^0.19.0",
     "firebase": "^6.5.0",
+    "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
