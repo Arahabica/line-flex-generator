@@ -20,6 +20,10 @@ export default {
     data: {
       type: Object,
       required: true
+    },
+    title: {
+      type: String,
+      default: 'this is a flex message'
     }
   },
   mounted() {
@@ -39,7 +43,7 @@ export default {
       if (window.confirm('送信してもよろしいですか？')) {
         const messageObject = {
           type: "flex",
-          altText: "this is a flex message",
+          altText: this.title,
           contents: this.data
         }
         window.liff.sendMessages([messageObject])

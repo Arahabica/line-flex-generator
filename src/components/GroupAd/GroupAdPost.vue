@@ -9,7 +9,7 @@
           v-row
             v-btn(block color="error" @click="() => $emit('cancel')") 戻る
     div(v-if="loadStatus === 1")
-      FlexView(:data="flex")
+      FlexView(:data="flex" :title="data ? data.title :''")
       .btn-padding
         v-btn(block @click="() => $emit('cancel')") 戻る
 </template>
