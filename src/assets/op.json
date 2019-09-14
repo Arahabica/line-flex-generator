@@ -6,7 +6,7 @@
     "contents": [
       {
         "type": "image",
-        "url": "https://obs.line-scdn.net/0h8w3qnN4RZ1gOCExzqGEYDzBeOnZ1e35Kc3BqNiwPaTslb3MPZ24oaSsJOzsrOHJcOj0vankNbWB0OnU",
+        "url": "",
         "size": "full",
         "aspectMode": "cover",
         "aspectRatio": "2:3",
@@ -39,7 +39,7 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "SNSマーケを語る会（Twitter、Instagram、Facebook他のソーシャルメディア活用",
+                    "text": "",
                     "size": "xl",
                     "color": "#ffffff",
                     "wrap": true,
@@ -53,7 +53,7 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "メンバー 174",
+                    "text": "",
                     "size": "sm",
                     "color": "#dadada",
                     "align": "center"
@@ -71,7 +71,7 @@
                     "contents": [
                       {
                         "type": "text",
-                        "text": "みんなのスタンプが集まる場所、「スタンプ広場」です\n芸人、アニメ、オリジナルなど個性豊かな(かわいい、おもしろい)スタンプが集まってます\n・LINEスタンプが好きな人\n・自分の好きなスタンプを宣伝したい人\n・どうしようもなく暇な人\n会話など交流するもよし、ただスタンプを押すだけでもよし\n連投はOKですが規約違反なので(BANされるよ)ほどほどに…",
+                        "text": "",
                         "color": "#ffffff",
                         "size": "md",
                         "flex": 0,
@@ -98,7 +98,7 @@
                     "action": {
                       "type": "uri",
                       "label": "参加する",
-                      "uri": "https://linecorp.com"
+                      "uri": ""
                     }
                   }
                 ]
@@ -115,7 +115,7 @@
                     "action": {
                       "type": "uri",
                       "label": "自分も宣伝する",
-                      "uri": "https://linecorp.com"
+                      "uri": "line://app/1576325464-okbDD9wk?path=/op"
                     }
                   }
                 ]

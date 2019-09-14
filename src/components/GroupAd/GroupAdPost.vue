@@ -50,7 +50,7 @@ export default {
       flex.body.contents[0].url = this.data.imgUrl
       flex.body.contents[2].contents[0].contents[0].contents[0].text = this.data.title
       flex.body.contents[2].contents[0].contents[1].contents[0].text = "メンバー " + this.data.number
-      flex.body.contents[2].contents[0].contents[2].contents[0].text = this.data.description
+      flex.body.contents[2].contents[0].contents[2].contents[0].contents[0].text = this.data.description
       flex.body.contents[2].contents[0].contents[3].contents[0].action.uri = this.url
       console.log({flex})
       return flex
@@ -68,17 +68,6 @@ export default {
         this.data = data.data.data
         this.loadStatus = 1
       }
-    },
-    _fetchScrapedData(url) {
-      const result = {
-        "data": {
-          "imgUrl": "https://obs.line-scdn.net/0h8w3qnN4RZ1gOCExzqGEYDzBeOnZ1e35Kc3BqNiwPaTslb3MPZ24oaSsJOzsrOHJcOj0vankNbWB0OnU",
-          "title": "SNSマーケを語る会（Twitter、Instagram、Facebook他のソーシャルメディア活用",
-          "number": "487",
-          "description": "SNSマーケティングに関わっている人、興味のある人、情報交換しましょう！"
-        }
-      }
-      return new Promise(resolve => resolve({data: result}))
     },
     fetchScrapedData(url) {
       const baseUrl = '/api/scrape'
