@@ -2,12 +2,14 @@
   v-app
     AppHeader
     nuxt
+    Footer
 </template>
 
 <script>
 import AppHeader from '../components/AppHeader'
+import Footer from '../components/Footer'
 export default {
-  components: { AppHeader }
+  components: { AppHeader, Footer }
 }
 </script>
 <style>
