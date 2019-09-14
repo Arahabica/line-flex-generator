@@ -1,14 +1,17 @@
 <template lang="pug">
   div
     div(v-if="loadStatus === 0")
-    v-container(v-if="loadStatus === 9")
-      div
-        v-row
-          | 読み込みに失敗しました。
-        v-row
-          v-btn(block color="error" @click="() => $emit('cancel')") 戻る
+    .app-root(v-if="loadStatus === 9")
+      v-container
+        div
+          v-row
+            | 読み込みに失敗しました。
+          v-row
+            v-btn(block color="error" @click="() => $emit('cancel')") 戻る
     div(v-if="loadStatus === 1")
       FlexView(:data="flex")
+      .btn-padding
+        v-btn(block @click="() => $emit('cancel')") 戻る
 </template>
 <script>
 import FlexView from '../FlexView'
@@ -64,7 +67,6 @@ export default {
         window.alert(err)
       })
       if (data) {
-        console.log(data)
         this.data = data.data.data
         this.loadStatus = 1
       }
@@ -77,8 +79,8 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.app
-  background-color #ffffff
 .app-root
   padding 15px 10px 5px 10px
+.btn-padding
+  padding: 40px 5px 10px 5px;
 </style>

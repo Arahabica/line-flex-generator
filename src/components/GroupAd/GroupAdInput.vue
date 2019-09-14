@@ -1,14 +1,15 @@
 <template lang="pug">
-  v-container
-    div
-      v-row
-        v-textarea(
-          outlined
-          label="招待リンク"
-          v-model="url"
-        )
-      v-row
-        v-btn(block :disabled="!valid" color="primary" @click="move") メッセージ作成
+  .app-root
+    v-container
+      div
+        v-row
+          v-textarea(
+            outlined
+            label="招待リンク"
+            v-model="url"
+          )
+        v-row
+          v-btn(block :disabled="!valid" color="primary" @click="move") メッセージ作成
 </template>
 <script>
 export default {
@@ -43,8 +44,6 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.app
-  background-color #ffffff
 .app-root
   padding 15px 10px 5px 10px
 </style>

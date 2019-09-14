@@ -1,8 +1,7 @@
 <template lang="pug">
   .app
-    .app-root
-      GroupAdInput(v-if="mode==='input'" @submit="movePost")
-      GroupAdPost(v-else :url="url" @cancel="cancel")
+    GroupAdInput(v-show="mode ==='input'" @submit="movePost")
+    GroupAdPost(v-show="mode === 'post'" :url="url" @cancel="cancel")
 </template>
 <script>
 import GroupAdInput from './GroupAdInput'
@@ -13,7 +12,7 @@ export default {
   data() {
     return {
       mode: "input",
-      url: null
+      url: ''
     }
   },
   methods: {
