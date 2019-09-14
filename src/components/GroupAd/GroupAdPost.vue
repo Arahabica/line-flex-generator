@@ -32,7 +32,9 @@ export default {
       immediate: true,
       handler(url) {
         this.loadStatus = 0
-        this.scrape(url)
+        if (url) {
+          this.scrape(url)
+        }
       }
     }
   },
