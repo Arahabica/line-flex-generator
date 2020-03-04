@@ -1,0 +1,121 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://tblg.k-img.com/restaurant/images/Rvw/68520/640x640_rect_68520201.jpg",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "http://linecorp.com/"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "もつ政",
+        "weight": "bold",
+        "size": "xl"
+      },
+      {
+        "type": "text",
+        "text": "もつ焼き、居酒屋",
+        "color": "#aaaaaa",
+        "size": "sm",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+          },
+          {
+            "type": "text",
+            "text": "3.4",
+            "size": "sm",
+            "color": "#999999",
+            "margin": "md",
+            "flex": 0
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "浅草駅（つくばＥＸＰ）から236m",
+        "color": "#666666",
+        "size": "sm",
+        "margin": "lg"
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "link",
+        "height": "sm",
+        "action": {
+          "type": "uri",
+          "label": "食べログ",
+          "uri": "https://s.tabelog.com/tokyo/A1311/A131102/13114885/"
+        }
+      },
+      {
+        "type": "button",
+        "style": "link",
+        "height": "sm",
+        "action": {
+          "type": "uri",
+          "label": "地図",
+          "uri": "https://www.google.com/maps?q=35.71208483870445,139.79149738467865"
+        }
+      },
+      {
+        "type": "text",
+        "text": "created by Flex Generator",
+        "color": "#cccccc",
+        "size": "xs",
+        "align": "center",
+        "margin": "lg",
+        "action": {
+          "type": "uri",
+          "label": "created by Flex Generator",
+          "uri": "line://app/1576325464-okbDD9wk"
+        }
+      }
+    ],
+    "flex": 0
+  }
+}

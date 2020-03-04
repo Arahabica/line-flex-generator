@@ -1,12 +1,12 @@
 <template lang="pug">
   .root
-    GroupAd
+    Restaurant
 </template>
 <script>
-import GroupAd from '../components/GroupAd/GroupAd'
+import Restaurant from '../components/Restaurant/Restaurant'
 
 export default {
-  components: { GroupAd },
+  components: {Restaurant},
   async mounted() {
     const liffId = '1576325464-okbDD9wk'
     await window.liff.init({liffId})
@@ -14,8 +14,7 @@ export default {
         window.alert('LIFFの初期化失敗。\n' + err)
       })
     if (!window.liff.isLoggedIn()) {
-      //await window.liff.login({ redirectUri: "https://line-flex-generator.firebaseapp.com/?path=op" })
-      await window.liff.login()
+      await window.liff.login({redirectUri: "https://line-flex-generator.firebaseapp.com/restaurant"})
     }
   }
 }

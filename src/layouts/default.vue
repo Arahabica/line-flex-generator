@@ -1,6 +1,5 @@
 <template lang="pug">
   v-app
-    AppHeader
     nuxt
     Footer
 </template>

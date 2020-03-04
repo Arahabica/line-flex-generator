@@ -24,19 +24,11 @@ export default {
     title: {
       type: String,
       default: 'this is a flex message'
+    },
+    type: {
+      type: String,
+      default: 'here'
     }
-  },
-  mounted() {
-    window.liff.init(
-      data => {
-        // Now you can call LIFF API
-        console.log(data)
-      },
-      err => {
-        // LIFF initialization failed
-        window.alert('LIFFの初期化失敗。\n' + err)
-      }
-    );
   },
   methods: {
     send() {
@@ -46,15 +38,27 @@ export default {
           altText: this.title,
           contents: this.data
         }
-        window.liff.sendMessages([messageObject])
-          .then(() => {
-            window.alert('送信しました。')
-            console.log('message sent');
-          })
-          .catch((err) => {
-            window.alert('送信に失敗しました。\n' + err)
-            console.log('error', err);
-          });
+        if (this.type === 'share') {
+          window.liff.shareTargetPicker([messageObject])
+            .then(() => {
+              window.alert('送信しました。')
+              console.log('message sent');
+            })
+            .catch((err) => {
+              window.alert('送信に失敗しました。\n' + err)
+              console.log('error', err);
+            });
+        } else {
+          window.liff.sendMessages([messageObject])
+            .then(() => {
+              window.alert('送信しました。')
+              console.log('message sent');
+            })
+            .catch((err) => {
+              window.alert('送信に失敗しました。\n' + err)
+              console.log('error', err);
+            });
+        }
       }
     }
   }
