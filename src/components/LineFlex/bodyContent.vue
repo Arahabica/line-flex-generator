@@ -1,7 +1,7 @@
 <template>
-    <div :class="classes" :style="style">
-        <box-content :data="data" />
-    </div>
+  <div :class="classes" :style="style">
+    <box-content :data="data" />
+  </div>
 </template>
 <script>
 import boxContent from './boxContent'
@@ -31,7 +31,9 @@ export default {
       return classes
     },
     style() {
-      return this.backgroundColor ? { backgroundColor: this.backgroundColor} : {}
+      return this.backgroundColor
+        ? { backgroundColor: this.backgroundColor }
+        : {}
     }
   }
 }

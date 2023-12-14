@@ -1,16 +1,19 @@
 <template>
-    <div class="t1Hero" :style="style">
-        <component :data="data" :is="findComponent(data.type)"></component>
-    </div>
+  <div class="t1Hero" :style="style">
+    <component :is="findComponent(data.type)" :data="data"></component>
+  </div>
 </template>
 <script>
 import imageContent from './imageContent'
 import boxContent from './boxContent'
+import videoContent from './videoContent'
+
 export default {
-  name: 'hero-content',
+  name: 'HeroContent',
   components: {
     boxContent,
-    imageContent
+    imageContent,
+    videoContent
   },
   props: {
     data: {
@@ -24,14 +27,17 @@ export default {
   },
   computed: {
     style() {
-      return this.backgroundColor ? { backgroundColor: this.backgroundColor} : {}
+      return this.backgroundColor
+        ? { backgroundColor: this.backgroundColor }
+        : {}
     }
   },
   methods: {
     findComponent(type) {
       const compConst = {
         box: 'boxContent',
-        image: 'imageContent'
+        image: 'imageContent',
+        video: 'videoContent'
       }
       return compConst[type]
     }

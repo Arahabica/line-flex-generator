@@ -1,17 +1,23 @@
 <template>
-    <div :class="classes" :style="style.root">
-        <a :style="style.a">
-            <div :style="style.text">
-                {{data.action.label}}
-            </div>
-        </a>
-    </div>
+  <div :class="classes" :style="style.root">
+    <a :style="style.a">
+      <div :style="style.text">
+        {{ data.action.label }}
+      </div>
+    </a>
+  </div>
 </template>
 
 <script>
 import {
-  getMargin, getPosition, getFlexClass,
-  getFlex, getGravity, getOffsetClasses, getOffsetStyle, getSize
+  getMargin,
+  getPosition,
+  getFlexClass,
+  getFlex,
+  getGravity,
+  getOffsetClasses,
+  getOffsetStyle,
+  getSize
 } from './flexClasses'
 
 export default {
@@ -27,7 +33,7 @@ export default {
   },
   computed: {
     classes() {
-      const {height, margin, gravity, position, flex} = this.data
+      const { height, margin, gravity, position, flex } = this.data
       const offsetClasses = getOffsetClasses(this.data)
       return [
         'MdBtn',
@@ -54,10 +60,10 @@ export default {
       return classes[buttonStyle]
     },
     style() {
-      const {color} = this.data
+      const { color } = this.data
       const buttonStyle = this.buttonStyle
 
-      const style = {root: {}, text: {}, a: {}}
+      const style = { root: {}, text: {}, a: {} }
       if (color) {
         if (buttonStyle === 'link') {
           style.text.color = color

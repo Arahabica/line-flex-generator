@@ -1,6 +1,8 @@
 const pascal = str => {
   if (/^[0-9]/.test(str)) {
-    return str.charAt(0) + str.charAt(1).toUpperCase() + str.substr(2).toLowerCase()
+    return (
+      str.charAt(0) + str.charAt(1).toUpperCase() + str.substr(2).toLowerCase()
+    )
   }
   if (/^xx/.test(str)) {
     return 'XX' + str.substr(2).toLowerCase()
@@ -8,19 +10,22 @@ const pascal = str => {
   return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase()
 }
 
-const getSpacing = (spacing) => {
+const getSpacing = spacing => {
   return spacing ? 'spc' + pascal(spacing) : ''
 }
 const getMargin = (margin, layout) => {
   if (!margin) {
     return ''
   }
-  const position = (layout === 'vertical') ? 'T' : 'L'
+  const position = layout === 'vertical' ? 'T' : 'L'
   return margin ? `ExMgn${position}${pascal(margin)}` : ''
 }
 
 const getSize = size => {
-  return 'Ex' + pascal(size || 'md')
+  if (['xxs', 'xs', 'sm', 'md','lg', 'xl','xxl','3xl','4xl','5xl','full'].includes(size || 'md')) {
+    return 'Ex' + pascal(size || 'md')
+  }
+  return ''
 }
 
 const getWrap = wrap => {
@@ -39,14 +44,16 @@ const getBaseline = layout => {
   return layout === 'baseline' ? 'bl' : ''
 }
 const getTextStyle = style => {
-  return (style === 'italic') ? 'ExFntStyIt' : ''
+  return style === 'italic' ? 'ExFntStyIt' : ''
 }
 const getDecoration = dec => {
-  return {
-    'none': 'ExTxtDecNone',
-    'line-through': 'ExTxtDecLt',
-    'underline' : 'ExTxtDecUl',
-  }[dec] || ''
+  return (
+    {
+      none: 'ExTxtDecNone',
+      'line-through': 'ExTxtDecLt',
+      underline: 'ExTxtDecUl'
+    }[dec] || ''
+  )
 }
 const getFlexClass = (flex, width) => {
   if (typeof flex === 'undefined') {
@@ -55,41 +62,41 @@ const getFlexClass = (flex, width) => {
     }
     return ''
   }
-  return (flex <= 3) ? `fl${flex}` : ''
+  return flex <= 3 ? `fl${flex}` : ''
 }
-const getFlex = (flex) => {
-  if (typeof flex === "undefined" || flex === null || flex <= 3) {
+const getFlex = flex => {
+  if (typeof flex === 'undefined' || flex === null || flex <= 3) {
     return {}
   }
   return {
     '-webkit-box-flex': flex,
-    flex: `${flex} ${flex} auto`
+    flex: `${flex}`
   }
 }
 
 const getCornerRadius = cornerRadius => {
-  return cornerRadius ? {borderRadius: cornerRadius} : {}
+  return cornerRadius ? { borderRadius: cornerRadius } : {}
 }
 const getHeight = height => {
-  return height ? {height} : {}
+  return height ? { height } : {}
 }
 const getWidth = width => {
-  return width ? {width} : {}
+  return width ? { width } : {}
 }
 const getWeight = weight => {
   return weight ? 'ExWB' : ''
 }
 const getBorderColor = borderColor => {
-  return borderColor ? {borderColor} : {}
+  return borderColor ? { borderColor } : {}
 }
 const getBorderWidth = borderWidth => {
-  return borderWidth ? {borderWidth} : {}
+  return borderWidth ? { borderWidth } : {}
 }
 const getAlign = align => {
   const aligns = {
-    'start': 'S',
-    'center': 'C',
-    'end': 'E'
+    start: 'S',
+    center: 'C',
+    end: 'E'
   }
   return align ? 'ExAlg' + aligns[align] : ''
 }
@@ -104,7 +111,7 @@ const getGravity = gravity => {
   return 'grv' + gravities[gravity]
 }
 const getBackgroundColor = backgroundColor => {
-  return backgroundColor ? {backgroundColor} : {}
+  return backgroundColor ? { backgroundColor } : {}
 }
 const getPosition = position => {
   if (position && position === 'absolute') {
@@ -119,7 +126,9 @@ const getOffsetClasses = data => {
 }
 const offsetClass = (data, location) => {
   const key = 'offset' + pascal(location)
-  return data[key] && !(/^[0-9]/.test(data[key])) ?  'Ex' + convertLocation(location).charAt(0) + pascal(data[key]) : ''
+  return data[key] && !/^[0-9]/.test(data[key])
+    ? 'Ex' + convertLocationShort(location) + pascal(data[key])
+    : ''
 }
 
 const getOffsetStyle = data => {
@@ -127,12 +136,14 @@ const getOffsetStyle = data => {
     ...offsetStyle(data, 'top'),
     ...offsetStyle(data, 'bottom'),
     ...offsetStyle(data, 'start'),
-    ...offsetStyle(data, 'end'),
+    ...offsetStyle(data, 'end')
   }
 }
 const offsetStyle = (data, location) => {
   const key = 'offset' + pascal(location)
-  return (data[key] && (/^[0-9]/.test(data[key]))) ? {[convertLocation(location)]: data[key]} : {}
+  return data[key] && /^[0-9]/.test(data[key])
+    ? { [convertLocation(location)]: data[key] }
+    : {}
 }
 
 const getPaddingClasses = data => {
@@ -142,7 +153,9 @@ const getPaddingClasses = data => {
 }
 const paddingClass = (data, location) => {
   const key = 'padding' + pascal(location)
-  return data[key] && !(/^[0-9]/.test(data[key])) ?  'ExPad' + convertLocation(location).charAt(0) + pascal(data[key]) : ''
+  return data[key] && !/^[0-9]/.test(data[key])
+    ? 'ExPad' + convertLocationShort(location) + pascal(data[key])
+    : ''
 }
 
 const getPaddingStyle = data => {
@@ -151,15 +164,18 @@ const getPaddingStyle = data => {
     ...paddingStyle(data, 'top'),
     ...paddingStyle(data, 'bottom'),
     ...paddingStyle(data, 'start'),
-    ...paddingStyle(data, 'end'),
+    ...paddingStyle(data, 'end')
   }
-
 }
 const paddingStyle = (data, location) => {
   const key = 'padding' + pascal(location)
   let pos = convertLocation(location)
-  pos = (pos === 'all') ? 'padding' : `padding-${pos}`
-  return (data[key] && (/^[0-9]/.test(data[key]))) ? {[pos]: data[key]} : {}
+  pos = pos === 'all' ? 'padding' : `padding-${pos}`
+  return data[key] && /^[0-9]/.test(data[key]) ? { [pos]: data[key] } : {}
+}
+
+const convertLocationShort = str => {
+  return convertLocation(str).charAt(0).toUpperCase()
 }
 
 const convertLocation = str => {
@@ -171,6 +187,29 @@ const convertLocation = str => {
     end: 'right'
   }[str]
 }
+
+const getAlignItems = str => {
+  return {
+    center: 'itms-algC',
+    start: 'itms-algS',
+    end: 'itms-algE',
+    baseline: 'itms-algBL',
+    stretch: 'itms-algSR'
+  }[str] || ''
+}
+
+
+const getJustifyContent = str => {
+  return {
+    center: 'itms-jfcC',
+    start: 'itms-jfcS',
+    end: 'itms-jfcE',
+    'space-between': 'itms-jfcSB',
+    'space-around': 'itms-jfcSA',
+    'space-evenly': 'itms-jfcSE'
+  }[str] || ''
+}
+
 
 export {
   pascal,
@@ -197,6 +236,7 @@ export {
   getPaddingStyle,
   getAlign,
   getDecoration,
-  getTextStyle
+  getTextStyle,
+  getAlignItems,
+  getJustifyContent
 }
-

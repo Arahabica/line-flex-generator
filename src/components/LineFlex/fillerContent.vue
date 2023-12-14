@@ -1,3 +1,3 @@
 <template>
-    <div class="mdBxFiller"></div>
+  <div class="mdBxFiller"></div>
 </template>

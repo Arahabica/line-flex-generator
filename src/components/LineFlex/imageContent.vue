@@ -1,22 +1,33 @@
 <template>
-    <div :class="classes" :style="style">
-        <div>
-            <a :style="{ paddingBottom: paddingRatio(data.aspectRatio) }" :href="href" target="_blank">
-                <span :style="{ backgroundImage: `url('${data.url}')` }"></span>
-            </a>
-        </div>
+  <div :class="classes" :style="style">
+    <div :style="innerStyle">
+      <a
+        :style="{ paddingBottom: paddingRatio(data.aspectRatio) }"
+        :href="href"
+        target="_blank"
+      >
+        <span :style="{ backgroundImage: `url('${data.url}')` }"></span>
+      </a>
     </div>
+  </div>
 </template>
 
 <script>
 import {
-  getPosition, getOffsetClasses, getSize, pascal,
-  getOffsetStyle, getAlign, getGravity, getBackgroundColor,
-  getFlex, getFlexClass
+  getPosition,
+  getOffsetClasses,
+  getSize,
+  pascal,
+  getOffsetStyle,
+  getAlign,
+  getGravity,
+  getBackgroundColor,
+  getFlex,
+  getFlexClass
 } from './flexClasses'
 
 export default {
-  name: 'flex-image',
+  name: 'FlexImage',
   props: {
     data: {
       type: Object,
@@ -25,7 +36,7 @@ export default {
   },
   computed: {
     classes() {
-      const {aspectMode, size, position, align, gravity, flex} = this.data
+      const { aspectMode, size, position, align, gravity, flex } = this.data
       const offsetClasses = getOffsetClasses(this.data)
       return [
         'MdImg',
@@ -46,13 +57,22 @@ export default {
       return null
     },
     style() {
-      const {backgroundColor, flex} = this.data
+      const { backgroundColor, flex } = this.data
       const offsetStyle = getOffsetStyle(this.data)
       return {
         ...offsetStyle,
         ...getBackgroundColor(backgroundColor),
         ...getFlex(flex)
       }
+    },
+    innerStyle() {
+      const { size } = this.data
+      if (/\d+(px|%)/.test(size)) {
+        return {
+          width: size
+        }
+      }
+      return {}
     }
   },
   methods: {
@@ -61,7 +81,7 @@ export default {
     },
     paddingRatio(ratio) {
       const wh = (ratio || '1:1').split(':')
-      return (wh[1] / wh[0]) * 100 + "%"
+      return (wh[1] / wh[0]) * 100 + '%'
     }
   }
 }

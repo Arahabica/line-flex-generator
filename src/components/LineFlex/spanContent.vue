@@ -1,8 +1,8 @@
 <template>
-    <span :class="classes" :style="style" v-html="html" ></span>
+  <span :class="classes" :style="style" v-html="html"></span>
 </template>
 <script>
-import { getSize, getWeight, getTextStyle, getDecoration } from "./flexClasses"
+import { getSize, getWeight, getTextStyle, getDecoration } from './flexClasses'
 
 export default {
   props: {
@@ -28,7 +28,7 @@ export default {
     },
     style() {
       const { color } = this.data
-      const style  = {}
+      const style = {}
       if (color) {
         style.color = color
       }

@@ -1,17 +1,17 @@
 <template>
-    <div :class="classes" :style="style">
-        <component
-                v-for="(content, index) in data.contents"
-                :key="index"
-                :is="findContent(content.type)"
-                :data="content"
-                :layout="data.layout">
-        </component>
-    </div>
+  <div :class="classes" :style="style">
+    <component
+      :is="findContent(content.type)"
+      v-for="(content, index) in data.contents"
+      :key="index"
+      :data="content"
+      :layout="data.layout"
+    >
+    </component>
+  </div>
 </template>
 
 <script>
-import boxContent from './boxContent'
 import textContent from './textContent'
 import spanContent from './spanContent'
 import imageContent from './imageContent'
@@ -37,22 +37,14 @@ import {
   getOffsetStyle,
   getOffsetClasses,
   getPaddingStyle,
-  getPaddingClasses
+  getPaddingClasses,
+  getAlignItems,
+  getJustifyContent
 } from './flexClasses'
 
 export default {
-  name: 'boxContent',
-  props: {
-    data: {
-      type: Object
-    },
-    layout: {
-      type: String,
-      default: 'vertical'
-    }
-  },
+  name: 'BoxContent',
   components: {
-    boxContent,
     textContent,
     spanContent,
     imageContent,
@@ -62,9 +54,18 @@ export default {
     iconContent,
     fillerContent
   },
+  props: {
+    data: {
+      type: Object
+    },
+    layout: {
+      type: String,
+      default: 'vertical'
+    }
+  },
   computed: {
     classes() {
-      const {layout, margin, spacing, position, flex, width} = this.data
+      const { layout, margin, spacing, position, flex, width, alignItems, justifyContent } = this.data
       const offsetClasses = getOffsetClasses(this.data)
       const paddingClasses = getPaddingClasses(this.data)
       return [
@@ -74,7 +75,9 @@ export default {
         getMargin(margin, this.layout),
         getSpacing(spacing),
         getFlexClass(flex, width),
-        getPosition(position)
+        getPosition(position),
+        getAlignItems(alignItems),
+        getJustifyContent(justifyContent),
       ]
         .concat(offsetClasses)
         .concat(paddingClasses)

@@ -1,12 +1,11 @@
 <template>
-    <div :class="classes" :style="style">
-        <div>
-            <span :style="spanStyle"></span>
-        </div>
+  <div :class="classes" :style="style">
+    <div>
+      <span :style="spanStyle"></span>
     </div>
+  </div>
 </template>
 <script>
-
 import {
   getPosition,
   getOffsetClasses,
@@ -27,7 +26,7 @@ export default {
   },
   computed: {
     classes() {
-      const {position, margin, size} = this.data
+      const { position, margin, size } = this.data
       const offsetClasses = getOffsetClasses(this.data)
       return [
         'MdIco',
@@ -46,9 +45,8 @@ export default {
       }
     },
     spanStyle() {
-      const { aspectRatio, url}  = this.data
+      const { aspectRatio, url } = this.data
       const aspects = (aspectRatio || '1:1').split(':')
-      console.log(aspectRatio, aspects)
       const width = aspects[0] / aspects[1] + 'em'
 
       return { backgroundImage: `url('${url}')`, width }

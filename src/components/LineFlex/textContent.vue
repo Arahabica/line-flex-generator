@@ -1,16 +1,17 @@
 <template>
-    <div :class="classes" :style="style">
-        <p>
-          <span v-html="html" ></span>
-            <component v-for="(content, index) in data.contents"
-                       :is="findContent(content.type)"
-                       :key="index"
-                       :data="content"
-                       :wrap="data.wrap"
-                       :layout="layout"
-            ></component>
-        </p>
-    </div>
+  <div :class="classes" :style="style">
+    <p>
+      <span v-if="html" v-html="html"></span>
+      <component
+        :is="findContent(content.type)"
+        v-for="(content, index) in data.contents"
+        :key="index"
+        :data="content"
+        :wrap="data.wrap"
+        :layout="layout"
+      ></component>
+    </p>
+  </div>
 </template>
 
 <script>
@@ -31,21 +32,30 @@ import {
 import spanContent from './spanContent'
 
 export default {
+  components: { spanContent },
   props: {
     data: {
       type: Object,
-      default: () => {
-      }
+      default: () => {}
     },
     layout: {
       type: String,
       default: 'vertical'
     }
   },
-  components: {spanContent},
   computed: {
     classes() {
-      const {margin, weight, size, flex, wrap, gravity, align, decoration, style} = this.data
+      const {
+        margin,
+        weight,
+        size,
+        flex,
+        wrap,
+        gravity,
+        align,
+        decoration,
+        style
+      } = this.data
       const offsetClasses = getOffsetClasses(this.data)
       return [
         'MdTxt',
@@ -57,13 +67,14 @@ export default {
         getFlexClass(flex),
         getAlign(align),
         getTextStyle(style),
-        getDecoration(decoration),
-      ].concat(offsetClasses)
+        getDecoration(decoration)
+      ]
+        .concat(offsetClasses)
         .filter(t => t)
     },
     style() {
       const result = {}
-      const {color, flex} = this.data
+      const { color, flex } = this.data
       const offsetStyle = getOffsetStyle(this.data)
       if (color) {
         result.color = color
@@ -75,6 +86,9 @@ export default {
       }
     },
     html() {
+      if (!this.data.text || (this.data.contents && this.data.contents.length > 0)) {
+        return ''
+      }
       if (!this.data.wrap) {
         return this.data.text
       }

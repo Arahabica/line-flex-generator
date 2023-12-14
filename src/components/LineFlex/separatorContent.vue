@@ -1,9 +1,9 @@
 <template>
-    <div :class="classes" :style="style"></div>
+  <div :class="classes" :style="style"></div>
 </template>
 
 <script>
-import { getMargin } from "./flexClasses"
+import { getMargin } from './flexClasses'
 
 export default {
   props: {

@@ -1,6 +1,5 @@
 <template>
   <div :class="classes"></div>
-
 </template>
 
 <script>
@@ -15,11 +14,7 @@ export default {
   computed: {
     classes() {
       const { size } = this.data
-      return [
-        'mdBxSpacer',
-        'fl0',
-        'spc' + pascal(size || 'md')
-      ]
+      return ['mdBxSpacer', 'fl0', 'spc' + pascal(size || 'md')]
     }
   }
 }

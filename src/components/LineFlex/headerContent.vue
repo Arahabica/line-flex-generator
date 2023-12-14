@@ -1,13 +1,13 @@
 <template>
-    <div class="t1Header" :style="style">
-        <box-content :data="data"/>
-    </div>
+  <div class="t1Header" :style="style">
+    <box-content :data="data" />
+  </div>
 </template>
 <script>
 import boxContent from './boxContent'
 
 export default {
-  components: {boxContent},
+  components: { boxContent },
   props: {
     data: {
       type: Object,
@@ -20,7 +20,9 @@ export default {
   },
   computed: {
     style() {
-      return this.backgroundColor ? { backgroundColor: this.backgroundColor} : {}
+      return this.backgroundColor
+        ? { backgroundColor: this.backgroundColor }
+        : {}
     }
   }
 }
